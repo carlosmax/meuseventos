@@ -13,6 +13,14 @@ namespace MeusEventos.Domain.Organizadores.Features
     {
         public class Command : IRequest<Guid>
         {
+            public Command(Guid id, string nome, string cpf, string email)
+            {
+                Id = id;
+                Nome = nome;
+                CPF = cpf;
+                Email = email;
+            }
+
             public Guid Id { get; private set; }
             public string Nome { get; private set; }
             public string CPF { get; private set; }

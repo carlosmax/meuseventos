@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeusEventos.Api", "src\Meus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeusEventos.Tests.Integration", "tests\MeusEventos.Tests.Integration\MeusEventos.Tests.Integration.csproj", "{EC0698ED-6738-49EA-BEE9-092AB4060DA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeusEventos.Infra.Identity", "src\MeusEventos.Infra.Identity\MeusEventos.Infra.Identity.csproj", "{200027D9-E336-429C-A62D-E8107EC2C616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{EC0698ED-6738-49EA-BEE9-092AB4060DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0698ED-6738-49EA-BEE9-092AB4060DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0698ED-6738-49EA-BEE9-092AB4060DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200027D9-E336-429C-A62D-E8107EC2C616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200027D9-E336-429C-A62D-E8107EC2C616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200027D9-E336-429C-A62D-E8107EC2C616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200027D9-E336-429C-A62D-E8107EC2C616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{29A22F12-1207-4977-8433-FC34B3699F7F} = {00F0C653-F867-404A-BD84-A4B7D9B4B4BA}
 		{4CD6B9DC-4BDA-492E-B02E-2B04A6E306BC} = {F85BCC57-8372-4D11-9A5C-544C794C8537}
 		{EC0698ED-6738-49EA-BEE9-092AB4060DA6} = {CE750080-FE15-44A4-8AA0-41CC94EF9D2E}
+		{200027D9-E336-429C-A62D-E8107EC2C616} = {00F0C653-F867-404A-BD84-A4B7D9B4B4BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E47E366D-A094-4675-9E01-30B88FE310B1}
