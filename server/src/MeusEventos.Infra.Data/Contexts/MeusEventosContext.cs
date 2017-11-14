@@ -15,6 +15,8 @@ namespace MeusEventos.Infra.Data.Contexts
 
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Organizador> Organizadores { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
         public override string ConnectionString => Configuration.GetConnectionString("DefaultConnection");
 
@@ -24,6 +26,8 @@ namespace MeusEventos.Infra.Data.Contexts
 
             modelBuilder.Entity<Evento>().Map();
             modelBuilder.Entity<Organizador>().Map();
+            modelBuilder.Entity<Categoria>().Map();
+            modelBuilder.Entity<Endereco>().Map();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

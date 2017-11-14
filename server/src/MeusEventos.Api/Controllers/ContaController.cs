@@ -28,15 +28,12 @@ namespace MeusEventos.Api.Controllers
         private readonly IMediator _mediator;
         private readonly IOrganizadorRepository _organizadorRepository;
         private readonly TokenDescriptor _tokenDescriptor;
-
-        public ContaController(IUser user) 
-            : base(user) { }
-
+        
         public ContaController(
             IUser user, 
             UserManager<ApplicationUser> userManager, 
-            SignInManager<ApplicationUser> signInManager, 
-            ILogger logger,
+            SignInManager<ApplicationUser> signInManager,
+            ILoggerFactory loggerFactory,
             IMediator mediator,
             IOrganizadorRepository organizadorRepository,
             TokenDescriptor tokenDescriptor)
@@ -44,7 +41,7 @@ namespace MeusEventos.Api.Controllers
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger<ContaController>();
             _mediator = mediator;
             _organizadorRepository = organizadorRepository;
             _tokenDescriptor = tokenDescriptor;
