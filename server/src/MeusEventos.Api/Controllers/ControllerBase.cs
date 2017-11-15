@@ -21,19 +21,19 @@ namespace MeusEventos.Api.Controllers
 
         protected IActionResult Sucesso(object result = null, bool objCreated = false, string url = "")
         {
-            var response = new Resposta(true, result);
+            var response = new Response(true, result);
             return objCreated ? (IActionResult)Created(url, response) : Ok(response);
         }
 
-        protected IActionResult Falha(object result)
+        protected IActionResult Falha(object data)
         {
-            var response = new Resposta(false, result);
+            var response = new Response(false, data);
             return BadRequest(response);
         }
 
         protected IActionResult Falha(ValidationResultException result)
         {
-            var response = new Resposta(result.ValidationResult);
+            var response = new Response(result.ValidationResult);
             return BadRequest(response);
         }
     }

@@ -23,45 +23,16 @@ namespace MeusEventos.Tests.Integration
         [Trait("Category", "Testes de integração da API")]
         public async Task ContaController_RegistrarNovoOrganizador_RetornarComSucesso()
         {
-            // Arrange 
-            var userFaker = new Faker<RegisterViewModel>("pt_BR")
-                .RuleFor(r => r.Nome, c => c.Name.FullName(Name.Gender.Male))
-                .RuleFor(r => r.CPF, c => c.Person.Cpf().Replace(".", "").Replace("-", ""))
-                // remoção de acento no email
-                .RuleFor(r => r.Email, (c, r) => RemoverAcentos(c.Internet.Email(r.Nome).ToLower()));
-
-            var user = userFaker.Generate();
-            user.Senha = "Teste@123";
-            user.SenhaConfirmacao = "Teste@123";
-
-            var postContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+            // Arrange
+            var user = UserUtils.GerarRegisterViewModel();
 
             // Act 
-            var response = await Environment.Client.PostAsync("api/nova-conta", postContent);
-
-            var userResult = JsonConvert.DeserializeObject<RegistroContaResponse>(await response.Content.ReadAsStringAsync());
-            var token = userResult.resultado.result.access_token;
+            var userResult = await Environment.Client.CadastrarOrganizador(user);
+            var token = userResult.data.result.access_token;
 
             // Assert
-            response.EnsureSuccessStatusCode();
+            Assert.True(userResult.success);
             Assert.NotEmpty(token);
-        }
-
-        private static string RemoverAcentos(string text)
-        {
-            var normalizedString = text.Normalize(NormalizationForm.FormD);
-            var stringBuilder = new StringBuilder();
-
-            foreach (var c in normalizedString)
-            {
-                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
-                {
-                    stringBuilder.Append(c);
-                }
-            }
-
-            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }

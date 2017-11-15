@@ -5,14 +5,14 @@ using System.Text;
 namespace MeusEventos.Tests.Integration.DTO
 {
 
-    public class RegistroContaResponse
+    public class RegistroUsuarioJson
     {
-        public bool sucesso { get; set; }
-        public Resultado resultado { get; set; }
-        public object erros { get; set; }
+        public bool success { get; set; }
+        public Data data { get; set; }
+        public object errors { get; set; }
     }
 
-    public class Resultado
+    public class Data
     {
         public Result result { get; set; }
         public int id { get; set; }
